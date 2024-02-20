@@ -331,7 +331,6 @@ data "aws_iam_policy_document" "user_password_kms_permissions" {
   }
 }
 
-/*
 module "aggregated_policy" {
   source = "../../../../../modules/terraform-aws-iam-policy-document-aggregator"
   # source = "git::https://github.com/cloudposse/terraform-aws-iam-policy-document-aggregator.git?ref=tags/0.2.0"
@@ -347,7 +346,7 @@ module "aggregated_policy" {
     join("", data.aws_iam_policy_document.user_password_secretsmanager_permissions.*.json),
   ])
 }
-*/
+
 resource "aws_iam_role" "lambda" {
   count = var.enabled ? 1 : 0
 
