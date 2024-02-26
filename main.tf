@@ -79,7 +79,8 @@ data "aws_kms_key" "lambda" {
 module "default_label" {
   enabled = var.enabled
 
-  source     = "git::https://github.com/SKIMRAN0509/terraform-null-label.git?ref=main"
+  source     = "cloudposse/label/null"
+  version    = "0.25.0"
   attributes = compact(concat(var.attributes, ["db", "provisioner"]))
   delimiter  = var.delimiter
   name       = var.name
